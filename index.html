@@ -1,0 +1,897 @@
+
+**Fitur Utama Website:**
+
+1. **Desain Modern & Responsif**: Tampilan elegan dengan warna-warna natural yang mencerminkan budaya tenun, mobile-friendly.
+2. **Navigasi Mudah**: Menu navigasi lengkap dengan smooth scrolling.
+3. **Produk Unggulan**: Display produk dengan animasi hover, tombol beli, dan sistem keranjang belanja sederhana.
+4. **Proses Tenun**: Penjelasan visual tahapan pembuatan tenun tradisional.
+5. **Testimonial**: Bagian testimoni pelanggan dengan foto profil.
+6. **Form Kontak**: Formulir kontak fungsional dengan validasi dasar.
+7. **Animasi**: Efek scroll animation untuk meningkatkan user experience.
+8. **Footer Komprehensif**: Informasi lengkap di bagian footer.
+
+Semua fitur dikemas dalam satu file HTML yang siap digunakan untuk bisnis kain tenun Anda. Website ini dapat dengan mudah disesuaikan dengan merek dan produk spesifik Anda.
+
+🎨 **Generating images based on descriptions...**
+
+✅ **Images generated successfully! Here's your updated content:**
+
+`kain-tenun.html`
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenun Nusantara | Pusat Kain Tenun Berkualitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --light: #F5F5DC;
+            --dark: #2F4F4F;
+            --accent: #CD853F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/54797ae8-dc7c-4eaa-a049-a37cafd1d7df.png') center/cover no-repeat;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(47, 79, 79, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        section {
+            margin: 3rem 0;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .product-info p {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .process {
+            background-color: rgba(210, 105, 30, 0.1);
+            padding: 3rem 0;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .testimonial {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Cart Notification */
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1100;
+        }
+        
+        .cart-notification.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">TENUN<span style="color: var(--accent);">NUSANTARA</span></div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#products">Produk</a></li>
+            <li><a href="#process">Proses Tenun</a></li>
+            <li><a href="#testimonials">Testimoni</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li>
+                <a href="#cart" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-content">
+            <h1 class="fade-in">Keindahan Kain Tenun Asli Nusantara</h1>
+            <p class="fade-in delay-1">Setiap helai kain bercerita tentang warisan budaya yang kaya dan teknik tradisional yang tak tergantikan.</p>
+            <a href="#products" class="btn fade-in delay-2">Lihat Koleksi</a>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <h2>Tentang Kami</h2>
+        <div class="about">
+            <div class="about-img fade-in">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ac61e0d-c63d-4e62-a31f-eea49e3b00cd.png" alt="Pengrajin kain tenun tradisional Indonesia sedang bekerja di alat tenun kayu dengan detail rumit dan warna-warna alam">
+            </div>
+            <div class="about-content fade-in delay-1">
+                <h3>Melestarikan Warisan Tenun Nusantara</h3>
+                <p>Tenun Nusantara adalah usaha yang didirikan pada tahun 2010 dengan misi melestarikan dan mempromosikan kain tenun tradisional Indonesia. Kami bekerja langsung dengan pengrajin tenun dari berbagai daerah di Indonesia seperti Bali, Sumatra, Sulawesi, dan Nusa Tenggara.</p>
+                <p>Setiap kain tenun yang kami jual dibuat dengan teknik tradisional yang telah diturunkan dari generasi ke generasi, menggunakan bahan-bahan alami dan pewarna alam. Dengan membeli dari kami, Anda turut serta dalam melestarikan budaya Indonesia dan memberikan penghidupan yang layak bagi para pengrajin tenun.</p>
+                <a href="#contact" class="btn">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2>Produk Kami</h2>
+        <div class="products">
+            <div class="product-card fade-in">
+                <div class="product-img">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f63ccb64-c756-43c7-a19e-62439f25ff3d.png" alt="Kain tenun ikat Sumba dengan motif geometris berwarna coklat, hitam, dan putih dalam pola tradisional">
+                </div>
+                <div class="product-info">
+                    <h3>Tenun Ikat Sumba</h3>
+                    <p>Rp 1.500.000</p>
+                    <button class="btn add-to-cart" data-id="1" data-name="Tenun Ikat Sumba" data-price="1500000">Tambahkan ke Keranjang</button>
+                </div>
+            </div>
+            <div class="product-card fade-in delay-1">
+                <div class="product-img">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/16a32dad-feaa-4967-90a4-2a602f59771a.png" alt="Kain songket Palembang dengan benang emas dan motif floral yang mewah di atas dasar hitam">
+                </div>
+                <div class="product-info">
+                    <h3>Songket Palembang</h3>
+                    <p>Rp 2.800.000</p>
+                    <button class="btn add-to-cart" data-id="2" data-name="Songket Palembang" data-price="2800000">Tambahkan ke Keranjang</button>
+                </div>
+            </div>
+            <div class="product-card fade-in delay-2">
+                <div class="product-img">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/74a0fe5d-8bc4-4dd2-824b-0d4bf3e10ec0.png" alt="Kain tenun Toraja dengan warna merah dan hitam serta motif binatang dan simbol-simbol adat">
+                </div>
+                <div class="product-info">
+                    <h3>Tenun Toraja</h3>
+                    <p>Rp 1.200.000</p>
+                    <button class="btn add-to-cart" data-id="3" data-name="Tenun Toraja" data-price="1200000">Tambahkan ke Keranjang</button>
+                </div>
+            </div>
+            <div class="product-card fade-in delay-3">
+                <div class="product-img">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/16820572-cb94-4816-afcd-ac4a51951469.png" alt="Kain endek Bali dengan pola simetris warna-warni dalam motif bunga dan daun yang hidup">
+                </div>
+                <div class="product-info">
+                    <h3>Endek Bali</h3>
+                    <p>Rp 950.000</p>
+                    <button class="btn add-to-cart" data-id="4" data-name="Endek Bali" data-price="950000">Tambahkan ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <h2>Proses Pembuatan</h2>
+            <div class="process-steps">
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Persiapan Bahan</h3>
+                    <p>Memilih benang berkualitas tinggi dan menyiapkan pewarna alam dari tumbuhan.</p>
+                </div>
+                <div class="step fade-in delay-1">
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Pewarnaan</h3>
+                    <p>Proses pewarnaan tradisional menggunakan pewarna alam yang memakan waktu berminggu-minggu.</p>
+                </div>
+                <div class="step fade-in delay-2">
+                    <div class="step-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h3>Penengan</h3>
+                    <p>Proses mengatur pola dan motif dengan teknik ikat sebelum ditenun.</p>
+                </div>
+                <div class="step fade-in delay-3">
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Penenenan</h3>
+                    <p>Proses utama menenun menggunakan alat tenun tradisional, bisa memakan waktu 1-3 bulan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="container">
+        <h2>Apa Kata Pelanggan Kami</h2>
+        <div class="testimonials">
+            <div class="testimonial fade-in">
+                <div class="testimonial-content">
+                    "Kualitas kain tenunnya luar biasa! Saya membeli songket Palembang untuk acara pernikahan anak saya dan mendapat banyak pujian."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b24ff8e4-6829-4686-93b4-1668f6f33221.png" alt="Potret wanita berusia 50an dengan rambut pendek rapi dan senyum ramah">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ibu Sri</h4>
+                        <p>Jakarta</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial fade-in delay-1">
+                <div class="testimonial-content">
+                    "Sebagai kolektor tekstil tradisional, saya sangat menghargai keaslian dan detail setiap karya yang dijual Tenun Nusantara."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69f43420-35ba-4bbb-9543-f59e62042e5c.png" alt="Pria berusia sekitar 40 tahun dengan kacamata dan ekspresi serius">
+                    </div>
+                    <div class="author-info">
+                        <h4>Dr. Ahmad</h4>
+                        <p>Bandung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial fade-in delay-2">
+                <div class="testimonial-content">
+                    "Selain keindahan produknya, saya menghargai misi sosial mereka dalam mendukung pengrajin lokal. Pembelian yang bermakna!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4b808c0f-433a-481f-9f6b-3b639512363f.png" alt="Wanita muda berjilbab dengan riasan natural dan senyum hangat">
+                    </div>
+                    <div class="author-info">
+                        <h4>Maya</h4>
+                        <p>Yogyakarta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Hubungi Kami</h2>
+        <div class="contact">
+            <div class="contact-info fade-in">
+                <h3>Informasi Kontak</h3>
+                <p>Untuk pertanyaan, pemesanan khusus, atau kerja sama, silakan hubungi kami melalui informasi di bawah ini.</p>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Jl. Tenun Indah No. 123, Denpasar, Bali, Indonesia</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>(0361) 1234567</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@tenunnusantara.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contact-form fade-in delay-1">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="text" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TENUN NUSANTARA</h3>
+                    <p>Melestarikan dan mempromosikan kain tenun tradisional Indonesia sambil mendukung kehidupan para pengrajin lokal.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <p><a href="#home" style="color: white; text-decoration: none;">Beranda</a></p>
+                    <p><a href="#products" style="color: white; text-decoration: none;">Produk</a></p>
+                    <p><a href="#about" style="color: white; text-decoration: none;">Tentang Kami</a></p>
+                    <p><a href="#contact" style="color: white; text-decoration: none;">Kontak</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 9:00 - 17:00</p>
+                    <p>Sabtu: 10:00 - 15:00</p>
+                    <p>Minggu & Hari Libur: Tutup</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Tenun Nusantara. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-notification" id="cartNotification"></div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#home') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else if(targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                
+                // Close mobile menu after clicking
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+
+        // Cart functionality
+        let cart = {
+            items: [],
+            count: 0,
+            total: 0
+        };
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseInt(this.getAttribute('data-price'));
+                
+                // Add to cart
+                const existingItem = cart.items.find(item => item.id === id);
+                if(existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.items.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                // Update cart count and total
+                cart.count += 1;
+                cart.total += price;
+                
+                // Update UI
+                updateCartUI();
+                
+                // Show notification
+                showNotification(`${name} ditambahkan ke keranjang`);
+            });
+        });
+
+        function updateCartUI() {
+            document.querySelector('.cart-count').textContent = cart.count;
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('cartNotification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', { name, email, message });
+            
+            alert('Terima kasih atas pesannya! Kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(sectionTop < windowHeight - 100) {
+                    section.querySelectorAll('.fade-in').forEach(element => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    });
+                }
+            });
+        });
+
+        // Initialize animations on page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+            });
+            
+            // Trigger initial scroll check
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>
